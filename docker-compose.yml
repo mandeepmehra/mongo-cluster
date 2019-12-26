@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mongo_primary:
+    image: mongo:latest
+    ports:
+        - "27017:27017"
+    volumes:
+        - "./datadir_primary:/data/db"
+
+  mongo_primary:
+    image: mongo:latest
+                  ports:
+                                  - "27017:27017"
+                                        volumes:
+                                                        - "./datadir_primary:/data/db"
+
