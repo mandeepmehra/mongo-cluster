@@ -7,10 +7,17 @@ services:
     volumes:
         - "./datadir_primary:/data/db"
 
-  mongo_primary:
+  mongo_secondary1:
     image: mongo:latest
-                  ports:
-                                  - "27017:27017"
-                                        volumes:
-                                                        - "./datadir_primary:/data/db"
+    ports:
+      - "27019:27017"
+    volumes:
+        - "./datadir_secondary1:/data/db"
 
+
+  mongo_secondary2:
+    image: mongo:latest
+    ports:
+      - "27021:27017"
+    volumes:
+        - "./datadir_secondary2:/data/db"
