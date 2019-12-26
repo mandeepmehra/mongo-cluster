@@ -1,23 +1,26 @@
 version: '3'
 services:
-  mongo_primary:
+  dbhost_1:
     image: mongo:latest
     ports:
         - "27017:27017"
     volumes:
         - "./datadir_primary:/data/db"
+    command: mongod --replSet rs0 --bind_ip_all
 
-  mongo_secondary1:
+  dbhost_2:
     image: mongo:latest
     ports:
       - "27019:27017"
     volumes:
         - "./datadir_secondary1:/data/db"
+    command: mongod --replSet rs0 --bind_ip_all
 
 
-  mongo_secondary2:
+  dbhost_3:
     image: mongo:latest
     ports:
       - "27021:27017"
     volumes:
         - "./datadir_secondary2:/data/db"
+    command: mongod --replSet rs0 --bind_ip_all
